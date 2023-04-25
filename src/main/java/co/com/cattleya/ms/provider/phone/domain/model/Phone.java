@@ -1,4 +1,4 @@
-package co.com.cattleya.ms.provider.social;
+package co.com.cattleya.ms.provider.phone.domain.model;
 
 import co.com.cattleya.ms.provider.provider.domain.model.Provider;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -12,14 +12,13 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "social_media")
-public class SocialMedia {
+@Entity(name = "phone")
+public class Phone {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String link;
-    private String name;
-    private String username;
+    private Integer extension;
+    private Long number;
     @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnore
     @JoinColumn(name = "provider_id", referencedColumnName = "id", nullable = false)
