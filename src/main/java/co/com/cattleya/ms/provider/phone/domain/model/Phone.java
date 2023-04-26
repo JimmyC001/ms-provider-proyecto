@@ -19,7 +19,7 @@ public class Phone {
     private Long id;
     private Integer extension;
     private Long number;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JsonIgnore
     @JoinColumn(name = "provider_id", referencedColumnName = "id", nullable = false)
     private Provider provider;

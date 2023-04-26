@@ -24,13 +24,13 @@ public class PhoneService {
         return repository.findByExtensionAndNumber(ext, number);
     }
 
-
-    public Phone deletePhone(Long id , Provider provider) {
-        Phone dbPhone = repository.findById(id).orElse(null);
+    public Phone deletePhone(Phone phone){
+        if(phone ==  null)
+            return null;
+        Phone dbPhone = repository.findById(phone.getId()).orElse(null);
         if(dbPhone == null)
             return null;
-
-        repository.deletePhoneByIdAndProvider(dbPhone.getId() , provider);
+        repository.delete(phone);
         return dbPhone;
     }
      

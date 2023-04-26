@@ -1,9 +1,12 @@
 package co.com.cattleya.ms.provider.provider.domain.service;
 
+import co.com.cattleya.ms.provider.phone.domain.model.Phone;
 import co.com.cattleya.ms.provider.provider.domain.model.Provider;
 import co.com.cattleya.ms.provider.provider.domain.repository.ProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -58,5 +61,24 @@ public class ProviderService  {
         }
         return null;
 
+    }
+
+    public Phone deleteProviderPhone (Provider provider, Long id){
+        List <Phone> phones = new ArrayList<>();
+        Phone phdelete = null;
+        for (Phone phone: provider.getPhones()) {
+            if(phone.getId().compareTo(id)!=0){
+                phones.add(phone);
+            }
+            else {
+                System.out.println(phone.getNumber());
+                phdelete = phone;
+                //phone.setProvider(null);
+            }
+
+        }
+        provider.setPhones(phones);
+        repository.save(provider);
+        return phdelete;
     }
 }

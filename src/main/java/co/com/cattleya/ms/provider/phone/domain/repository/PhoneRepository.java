@@ -12,7 +12,7 @@ public interface PhoneRepository extends JpaRepository<Phone, Long> {
 
     Phone findByExtensionAndNumber(Integer ext, Long number);
 
-    void deleteByIdaAndProvider(Long aLong);
+
 
 
 

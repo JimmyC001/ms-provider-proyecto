@@ -25,10 +25,10 @@ public class DeletePhone {
     public ResponseEntity<Phone> deletePhone(@PathVariable("provider")  Long provider , @PathVariable("id") Long id ){
         if(provider == null || id == null)
             return ResponseEntity.badRequest().build();
-        Provider dbprovider = providerService.findProvider(id);
-        if(dbprovider == null)
+        Provider founded = providerService.findProvider(provider);
+        if(founded == null)
             return ResponseEntity.notFound().build();
-        Phone dbphone = phoneservice.deletePhone(id , dbprovider);
+        Phone dbphone = phoneservice.deletePhone(providerService.deleteProviderPhone(founded, id));
         if(dbphone == null)
             return ResponseEntity.notFound().build();
         return ResponseEntity.ok(dbphone);
