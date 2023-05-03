@@ -1,7 +1,7 @@
 package co.com.cattleya.ms.provider.provider.domain.model;
 
 import co.com.cattleya.ms.provider.phone.domain.model.Phone;
-import co.com.cattleya.ms.provider.social.SocialMedia;
+import co.com.cattleya.ms.provider.social.domain.model.SocialMedia;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

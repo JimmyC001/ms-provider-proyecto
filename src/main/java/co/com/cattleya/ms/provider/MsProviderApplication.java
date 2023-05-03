@@ -1,5 +1,4 @@
 package co.com.cattleya.ms.provider;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

@@ -1,4 +1,4 @@
-package co.com.cattleya.ms.provider.social;
+package co.com.cattleya.ms.provider.social.domain.model;
 
 import co.com.cattleya.ms.provider.provider.domain.model.Provider;
 import com.fasterxml.jackson.annotation.JsonIgnore;

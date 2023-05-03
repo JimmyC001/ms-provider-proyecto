@@ -22,7 +22,6 @@ public class PostPhone {
     }
     @PostMapping("{id}/phone")
     public ResponseEntity<PhoneResponse> create(@PathVariable("id") Long id , @RequestBody PhoneRequest request) {
-        System.out.println("Valor de id: " + id);
         if (request == null)
             return ResponseEntity.badRequest().build();
         Provider prov = provider.findProvider(id);
