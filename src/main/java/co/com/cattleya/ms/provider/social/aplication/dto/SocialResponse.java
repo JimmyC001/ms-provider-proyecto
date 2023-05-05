@@ -12,7 +12,5 @@ public class SocialResponse {
     private String link;
     private String name;
     private String username;
-
-
 }
 

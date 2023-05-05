@@ -3,6 +3,7 @@ package co.com.cattleya.ms.provider.provider.domain.service;
 import co.com.cattleya.ms.provider.phone.domain.model.Phone;
 import co.com.cattleya.ms.provider.provider.domain.model.Provider;
 import co.com.cattleya.ms.provider.provider.domain.repository.ProviderRepository;
+import co.com.cattleya.ms.provider.social.domain.model.SocialMedia;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -80,5 +81,23 @@ public class ProviderService  {
         provider.setPhones(phones);
         repository.save(provider);
         return phdelete;
+    }
+    public SocialMedia deleteProviderSocialMedia (Provider provider, Long id){
+        List <SocialMedia> socials = new ArrayList<>();
+        SocialMedia socialdelete = null;
+        for (SocialMedia social: provider.getSocial()) {
+            if(social.getId().compareTo(id)!=0){
+                socials.add(social);
+            }
+            else {
+                System.out.println(social.getLink());
+                socialdelete = social;
+                //phone.setProvider(null);
+            }
+
+        }
+        provider.setSocial(socials);
+        repository.save(provider);
+        return socialdelete;
     }
 }
